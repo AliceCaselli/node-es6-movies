@@ -1,9 +1,3 @@
-// Eseguire tutto il codice da terminale tramite NodeJs e stampiamo nel terminale il risultato delle varie funzioni.
-// BONUS:
-// Rendere le proprietà delle classi private e creare dei setter e dei getter per potervi accedere.
-// Creare una classe Cart dove poter salvare i film che si intende noleggiare. Tramite delle funzioni, poter aggiungere o togliere dei film dal carrello. Creare poi una funzione che stampi il costo totale dei film da noleggiare, dove per ogni film occorre specificare un prezzo fisso di 3.99
-
-
 // Definire un array di oggetti; ogni oggetto rappresenta un film o serie tv, che è caratterizzato da: title, year, genre, rating, type (movie o tv)
 let moviesAndTv = [
     {
@@ -77,6 +71,13 @@ let moviesAndTv = [
 
 // Creare una classe Movie che contenga le informazioni sopra indicate.
 class Movie {
+    // BONUS:
+    // Rendere le proprietà delle classi private e creare dei setter e dei getter per potervi accedere.
+    #title;
+    #year;
+    #genre;
+    #rating;
+    #type;
 
 
     constructor(title, year, genre, rating, type) {
@@ -87,6 +88,48 @@ class Movie {
         this.type = type;
     }
 
+
+    //GET
+    get title() {
+        return this.#title;
+    }
+
+    get year() {
+        return this.#year;
+    }
+
+    get genre() {
+        return this.#genre;
+    }
+
+    get rating() {
+        return this.#rating;
+    }
+
+    get type() {
+        return this.#type;
+    }
+
+    //SET
+    set title(value) {
+        this.#title = value;
+    }
+
+    set year(value) {
+        this.#year = value;
+    }
+
+    set genre(value) {
+        this.#genre = value;
+    }
+
+    set rating(value) {
+        this.#rating = value;
+    }
+
+    set type(value) {
+        this.#type = value;
+    }
 
     // Entrambe le classi dovranno avere un metodo toString() che ritorni una stringa con i dati del film
     toString() {
@@ -101,10 +144,22 @@ console.log(film.toString());
 // Creare una classe TvSeries che estenda la classe Movie e ne aggiunta la proprietà seasons.
 class TVSeries extends Movie {
 
+    //bonus
+    #seasons;
 
     constructor(title, year, genre, rating, type, seasons) {
         super(title, year, genre, rating, type);
         this.seasons = seasons;
+    }
+
+    //GET
+    get seasons() {
+        return this.#seasons;
+    }
+
+    //SET
+    set seasons(value) {
+        this.#seasons = value;
     }
 
 
@@ -185,3 +240,16 @@ function genreFilter(array, genre) {
     return filteredGenre;
 }
 console.log(genreFilter(sortMovieAndTv, "horror"));
+
+
+// Creare una classe Cart dove poter salvare i film che si intende noleggiare. Tramite delle funzioni, poter aggiungere o togliere dei film dal carrello.
+
+
+
+
+
+
+// Creare poi una funzione che stampi il costo totale dei film da noleggiare, dove per ogni film occorre specificare un prezzo fisso di 3.99
+
+
+
